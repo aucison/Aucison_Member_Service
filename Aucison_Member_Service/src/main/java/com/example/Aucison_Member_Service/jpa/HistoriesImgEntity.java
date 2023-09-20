@@ -1,42 +1,48 @@
 package com.example.Aucison_Member_Service.jpa;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter
 @Entity
 @Table(name = "histories_img")
-public class HistoriesImgEntity {
+public class HistoriesImgEntity { // 상품 사진
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "histories_imgs_id")
-    private Long id;
+    private Long id; // 사용자 프로필 사진 id
 
     @Column(nullable = false)
-    private String name;
+    private String name; // 이미지 이름
 
     @Column(nullable = false)
-    private String path;
+    private String path; // 저장 위치
 
     @Column(nullable = false)
-    private String url;
+    private String url; // 등록 url
 
     @Column(nullable = false)
-    private String type;
+    private String type; // 파일 확장자
 
     @Column(nullable = false)
-    private String size; // type 수정이 필요합니다.
+    // type 수정이 필요합니다.
+    private String size; // 파일 크기
 
     @Column(name = "h_w", nullable = false)
-    private String hW; // type 수정이 필요합니다.
+    // type 수정이 필요합니다.
+    private String hW; // 이미지 가로세로 길이
 
     @Column(name = "created_at", nullable = false)
-    private Date createdAt;
+    // type 수정이 필요합니다.
+    private Date createdAt; // 이미지 생성일
 
     @OneToOne
-    @JoinColumn(name = "histories_id")
-    private HistoriesEntity historiesEntity; // 연관관계 주인
+    @JoinColumn(name = "histories_id") // 연관관계 주인
+    private HistoriesEntity historiesEntity; // 사용자 구매/판매 내역
 }

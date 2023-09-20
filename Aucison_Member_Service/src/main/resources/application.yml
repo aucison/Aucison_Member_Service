@@ -1,3 +1,6 @@
+server:
+  port: 0
+
 spring:
   application:
     name: member-service
@@ -14,3 +17,21 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}} # Id? ???? 0? ?? ??? ????
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+
+token:
+  access-token-time: 18000000 # 5시간
+  refresh-token-time: 2592000000 # 30일
+  secret: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKb/4snaHoUpcJJuEghayTVfy3w3EUg19ftxM524fbpFwZsF2YqHP1HlaDcAtLdvNSuQWHemq53+fyxnQCyAFiUCAwEAAQ==

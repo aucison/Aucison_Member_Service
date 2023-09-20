@@ -1,25 +1,25 @@
 package com.example.Aucison_Member_Service.jpa;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter
 @Entity
 @Table(name = "wishes")
-public class WishesEntity {
+public class WishesEntity { // 찜
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "wishes_id")
-    private Long id;
-
-    @Column(nullable = false)
-    private Boolean status;
-
-    @Column(name = "products_code", nullable = false)
-    private String productsCode;
+    private Long id; // 찜 id
 
     @ManyToOne
-    @JoinColumn(name = "members_id")
-    private MembersEntity membersEntity; // 연관관계 주인
+    @JoinColumn(name = "email") // 연관관계 주인
+    private MembersEntity membersEntity; // 사용자
+
+    @Column(name = "products_id", nullable = false)
+    private Long productId; // products-server: products entity의 products_id
 }
