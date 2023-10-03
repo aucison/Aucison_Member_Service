@@ -1,10 +1,10 @@
 package com.example.Aucison_Member_Service.dto;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
-@Data
-@RequiredArgsConstructor
+@Builder
+@Getter
 public class RequestOrderDetailsDto {
     private String email;
     //private Long ordersId; // 이거 수정이 필요합니다..없애야할듯..

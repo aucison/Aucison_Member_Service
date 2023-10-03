@@ -11,7 +11,7 @@ public interface AuthService extends UserDetailsService {
     MemberDto createMember(MemberDto memberDto);
     ResponseEntity login(RequestLoginVo requestLoginVo);
     void logout(String accessToken);
-    ResponseEntity reissueToken(String refreshToken);
+//    ResponseEntity reissueToken(String refreshToken);
     MembersInfoDto getMember(String accessToken);
     void patchMember(String accessToken, MembersInfoDto membersInfoDto);
 

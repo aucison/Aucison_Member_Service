@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class ResponseOrderHistoryDto {
-    private Long ordersId; // 주문 고유 번호
+    private Long historiesId; // 주문 내역 고유 번호
     private String name; // 상품명
     private String info; // 상품 상세 정보
     private String imgUrl; // 이미지//////////////수정필요?
@@ -22,8 +22,9 @@ public class ResponseOrderHistoryDto {
     private Float nowPrice; // 경매 상품일 때 실시간 가격
     
     public ResponseOrderHistoryDto(HistoriesEntity historiesEntity) {
-        this.ordersId = historiesEntity.getId();
+        this.historiesId = historiesEntity.getId();
         this.name = historiesEntity.getName();
+        this.info = historiesEntity.getInfo();
         // imgUrl - HistoriesImg에서 주입
         this.category = historiesEntity.getCategory();
         // 주문 일자 - Product Server에서 주입

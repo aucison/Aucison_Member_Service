@@ -71,14 +71,14 @@ public class AuthServiceImpl implements AuthService {
         jwtUtils.setBlackList(accessToken);
     }
 
-    @Override
-    public ResponseEntity reissueToken(String refreshToken) { // 토큰 재발행
-
-        String email = jwtUtils.getEmailFromToken(refreshToken);
-        jwtUtils.deleteRefreshToken(email);
-        RequestLoginVo requestLoginVo = RequestLoginVo.builder().email(email).build();
-        return login(requestLoginVo);
-    }
+//    @Override
+//    public ResponseEntity reissueToken(String refreshToken) { // 토큰 재발행
+//
+//        String email = jwtUtils.getEmailFromToken(refreshToken);
+//        jwtUtils.deleteRefreshToken(email);
+//        RequestLoginVo requestLoginVo = RequestLoginVo.builder().email(email).build();
+//        return login(requestLoginVo);
+//    }
 
     @Override
     public MembersInfoDto getMember(String accessToken) {
